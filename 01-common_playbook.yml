@@ -1,0 +1,21 @@
+- name: Playbook to install common tools
+  hosts: servers
+  remote_user: ubuntu
+  tasks:
+  - name: Install unzip
+    apt:
+        update_cache: yes
+        name: unzip
+        state: latest
+  - name: Install curl
+    apt:
+      name: curl
+      state: latest
+  - name: Install wget
+    apt:
+      name: wget
+      state: latest
+  - name: Install vim
+    apt:
+      name: vim
+      state: latest

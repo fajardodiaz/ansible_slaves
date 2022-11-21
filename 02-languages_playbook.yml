@@ -1,0 +1,53 @@
+---
+- name: Playbook to install JAVA 11 and Python 3 - pip
+  hosts: servers
+  remote_user: ubuntu
+  tasks:
+  - name: Update ubuntu
+    apt:
+        update_cache: yes
+  
+  - name: Install JAVA
+    apt:
+        update_cache: yes 
+        name: openjdk-11-jdk
+        state: present 
+  
+  - name: Install Python3
+    apt:
+        update_cache: yes 
+        name: python3
+        state: latest
+
+  - name: Install pip3
+    apt:
+        update_cache: yes 
+        name: python3-pip
+        state: latest
+
+
+  - name: Set the JAVA_HOME in /etc/profile file
+    lineinfile:
+        path: /etc/profile
+        state: present
+        line: "{{ item }}"
+    with_items:
+        - 'export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"'
+        - 'export PATH=$PATH:$JAVA_HOME/bin'
+
+  - name: Reload /etc/profile file
+    shell:
+        cmd: . /etc/profile
+    
+  - name: Install bzt
+    shell:
+      cmd: pip3 install bzt\
+
+  - name: Copy .bzt-rc file
+    copy:
+        src: /home/pablo/DevOps/CopaCom/AnsibleMaster/.bzt-rc
+        dest: $HOME
+        owner: ubuntu
+        mode: '0744'
+
+...
