@@ -19,3 +19,8 @@
     apt:
       name: vim
       state: latest
+
+  - name: Install git
+    apt:
+      name: git
+      state: latest
