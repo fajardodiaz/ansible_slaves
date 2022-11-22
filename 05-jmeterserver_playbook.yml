@@ -2,18 +2,16 @@
   hosts: servers
   remote_user: ubuntu
   tasks:
-  -name:
-
   - name: Copy bash file to edit server properties
     copy:
-        src: /home/pablo/DevOps/CopaCom/AnsibleSlave/edit-serever.sh
-        dest: $HOME/
+        src: /home/pablo/DevOps/CopaCom/AnsibleSlave/edit-server.sh
+        dest: /home/ubuntu
         owner: ubuntu
         mode: '0744'
     
   - name: Execute script to set jmeter server properties
     shell:
-        cmd: cd $HOME && bash edit-serever.sh
+        cmd: cd /home/ubuntu && bash edit-serever.sh
 
   - name: Start jmeter server
     shell:

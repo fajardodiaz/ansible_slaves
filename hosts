@@ -1,2 +1,2 @@
 [slaves]
-slave[1:2]
+ubuntu-slave-[1:2]

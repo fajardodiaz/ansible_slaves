@@ -41,12 +41,12 @@
     
   - name: Install bzt
     shell:
-      cmd: pip3 install bzt\
+      cmd: pip3 install bzt
 
   - name: Copy .bzt-rc file
     copy:
         src: /home/pablo/DevOps/CopaCom/AnsibleMaster/.bzt-rc
-        dest: $HOME
+        dest: /home/ubuntu
         owner: ubuntu
         mode: '0744'
 
