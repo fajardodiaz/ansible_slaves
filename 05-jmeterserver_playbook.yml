@@ -2,6 +2,11 @@
   hosts: slaves
   remote_user: ubuntu
   tasks:
+  - name: copy rmi_keystore file
+    copy: ./rmi_keystore.jks
+    dest: /opt/apache-jmeter-5.5/bin/
+    owner: ubuntu
+
   - name: Copy bash file to edit server properties
     copy:
         src: ./edit-server.sh
