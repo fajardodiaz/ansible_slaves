@@ -45,7 +45,7 @@
 
   - name: Copy .bzt-rc file
     copy:
-        src: /home/pablo/DevOps/CopaCom/AnsibleMaster/.bzt-rc
+        src: ./.bzt-rc
         dest: /home/ubuntu
         owner: ubuntu
         mode: '0744'
