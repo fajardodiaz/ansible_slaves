@@ -1,19 +1,19 @@
 - name: Playbook to install common tools
-  hosts: servers
+  hosts: slaves
   remote_user: ubuntu
   tasks:
   - name: Copy bash file to edit server properties
     copy:
-        src: /home/pablo/DevOps/CopaCom/AnsibleSlave/edit-server.sh
+        src: ./edit-server.sh
         dest: /home/ubuntu
         owner: ubuntu
         mode: '0744'
     
   - name: Execute script to set jmeter server properties
     shell:
-        cmd: cd /home/ubuntu && bash edit-serever.sh
+        cmd: cd /home/ubuntu/ansible/ && bash edit-server.sh
 
   - name: Start jmeter server
     shell:
-      cmd: /opt/apache-jmeter-5.5/bin/jmeter-server
+      cmd: bash /opt/apache-jmeter-5.5/bin/jmeter-server
     

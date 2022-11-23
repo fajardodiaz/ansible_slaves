@@ -1,5 +1,5 @@
 - name: Playbook to install jmeter
-  hosts: servers
+  hosts: slaves
   remote_user: ubuntu
   tasks:
     - name: Update ubuntu  

@@ -1,5 +1,5 @@
 - name: Playbook to install playbook manager
-  hosts: servers
+  hosts: slaves
   remote_user: ubuntu
   tasks:
     - name: Update ubuntu  
@@ -22,5 +22,5 @@
 
     - name: Replace PluginsManagerCMD.sh file
       copy:
-        src: /home/pablo/DevOps/CopaCom/AnsibleSlave/PluginsManagerCMD.sh
+        src: /home/pablo/DevOps/CopaCom/AnsibleMaster/PluginsManagerCMD.sh
         dest: /opt/apache-jmeter-5.5/bin/
