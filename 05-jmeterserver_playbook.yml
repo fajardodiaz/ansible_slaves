@@ -11,9 +11,9 @@
     
   - name: Execute script to set jmeter server properties
     shell:
-        cmd: cd /home/ubuntu/ansible/ && bash edit-server.sh
+        cmd: cd /home/ubuntu && bash edit-server.sh
 
   - name: Start jmeter server
     shell:
-      cmd: bash /opt/apache-jmeter-5.5/bin/jmeter-server
+      cmd: bash /opt/apache-jmeter-5.5/bin/jmeter-server &
     

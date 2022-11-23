@@ -24,3 +24,8 @@
     apt:
       name: git
       state: latest
+
+  - name: Install net tools
+    apt:
+      name: net-tools
+      state: latest
