@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo sed -i "s/#server.rmi.localport=4000/server.rmi.localport=4000/" /opt/apache-jmeter-5.5/bin/jmeter.properties
-sudo echo "java.rmi.server.hostname=$(hostname -I | awk '{print $1}')"
+sudo echo "java.rmi.server.hostname=$(hostname -I | awk '{print $1}')" >> /opt/apache-jmeter-5.5/bin/jmeter.properties
 
 # sudo sed -i "s/#server.rmi.ssl.disable=false/server.rmi.ssl.disable=true/" /opt/apache-jmeter-5.5/bin/jmeter.properties
 # sudo sed -i "s/#server_port=1099/server_port=10991/" /opt/apache-jmeter-5.5/bin/jmeter.properties
