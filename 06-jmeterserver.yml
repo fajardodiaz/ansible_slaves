@@ -1,0 +1,15 @@
+- name: Playbook to install common tools
+  hosts: workers
+  remote_user: ubuntu
+  tasks:
+  - name: Copy bash file to edit server properties
+    copy:
+        src: ./edit-server-worker.sh
+        dest: /home/ubuntu
+        owner: ubuntu
+        mode: '0744'
+    
+  - name: Execute script to set jmeter server properties
+    shell:
+        cmd: cd /home/ubuntu && bash edit-server-worker.sh
+    
