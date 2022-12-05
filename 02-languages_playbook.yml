@@ -49,5 +49,11 @@
         dest: /home/ubuntu
         owner: ubuntu
         mode: '0744'
-
+  
+  - name: Copy .bzt-rc file to root
+    copy:
+        src: ./.bzt-rc
+        dest: /root
+        owner: ubuntu
+        mode: '0744'
 ...

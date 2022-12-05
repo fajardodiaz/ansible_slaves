@@ -3,9 +3,10 @@
   remote_user: ubuntu
   tasks:
   - name: copy rmi_keystore file
-    copy: ./rmi_keystore.jks
-    dest: /opt/apache-jmeter-5.5/bin/
-    owner: ubuntu
+    copy:
+      src: ./rmi_keystore.jks
+      dest: /opt/apache-jmeter-5.5/bin/
+      owner: ubuntu
 
   - name: Copy bash file to edit server properties
     copy:
@@ -20,5 +21,5 @@
 
   - name: Start jmeter server
     shell:
-      cmd: bash /opt/apache-jmeter-5.5/bin/jmeter-server &
+      cmd: cd /opt/apache-jmeter-5.5/bin/ && sudo bash jmeter-server
     
